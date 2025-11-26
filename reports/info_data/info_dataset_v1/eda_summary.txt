@@ -1,0 +1,73 @@
+===== EDA SUMMARY =====Dataset cargado: df_original_v1.csv=== Primeras filas ===   Age Sex ChestPainType  RestingBP  Cholesterol  FastingBS RestingECG  MaxHR ExerciseAngina  Oldpeak ST_Slope  HeartDisease
+0   40   M           ATA        140          289          0     Normal    172              N      0.0       Up             0
+1   49   F           NAP        160          180          0     Normal    156              N      1.0     Flat             1
+2   37   M           ATA        130          283          0         ST     98              N      0.0       Up             0
+3   48   F           ASY        138          214          0     Normal    108              Y      1.5     Flat             1
+4   54   M           NAP        150          195          0     Normal    122              N      0.0       Up             0
+5   39   M           NAP        120          339          0     Normal    170              N      0.0       Up             0
+6   45   F           ATA        130          237          0     Normal    170              N      0.0       Up             0
+7   54   M           ATA        110          208          0     Normal    142              N      0.0       Up             0
+8   37   M           ASY        140          207          0     Normal    130              Y      1.5     Flat             1
+9   48   F           ATA        120          284          0     Normal    120              N      0.0       Up             0=== Info ====== Info ===<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 918 entries, 0 to 917
+Data columns (total 12 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   Age             918 non-null    int64  
+ 1   Sex             918 non-null    object 
+ 2   ChestPainType   918 non-null    object 
+ 3   RestingBP       918 non-null    int64  
+ 4   Cholesterol     918 non-null    int64  
+ 5   FastingBS       918 non-null    int64  
+ 6   RestingECG      918 non-null    object 
+ 7   MaxHR           918 non-null    int64  
+ 8   ExerciseAngina  918 non-null    object 
+ 9   Oldpeak         918 non-null    float64
+ 10  ST_Slope        918 non-null    object 
+ 11  HeartDisease    918 non-null    int64  
+dtypes: float64(1), int64(6), object(5)
+memory usage: 86.2+ KB
+=== Describe ===               Age  Sex ChestPainType   RestingBP  Cholesterol   FastingBS RestingECG       MaxHR ExerciseAngina     Oldpeak ST_Slope  HeartDisease
+count   918.000000  918           918  918.000000   918.000000  918.000000        918  918.000000            918  918.000000      918    918.000000
+unique         NaN    2             4         NaN          NaN         NaN          3         NaN              2         NaN        3           NaN
+top            NaN    M           ASY         NaN          NaN         NaN     Normal         NaN              N         NaN     Flat           NaN
+freq           NaN  725           496         NaN          NaN         NaN        552         NaN            547         NaN      460           NaN
+mean     53.510893  NaN           NaN  132.396514   198.799564    0.233115        NaN  136.809368            NaN    0.887364      NaN      0.553377
+std       9.432617  NaN           NaN   18.514154   109.384145    0.423046        NaN   25.460334            NaN    1.066570      NaN      0.497414
+min      28.000000  NaN           NaN    0.000000     0.000000    0.000000        NaN   60.000000            NaN   -2.600000      NaN      0.000000
+25%      47.000000  NaN           NaN  120.000000   173.250000    0.000000        NaN  120.000000            NaN    0.000000      NaN      0.000000
+50%      54.000000  NaN           NaN  130.000000   223.000000    0.000000        NaN  138.000000            NaN    0.600000      NaN      1.000000
+75%      60.000000  NaN           NaN  140.000000   267.000000    0.000000        NaN  156.000000            NaN    1.500000      NaN      1.000000
+max      77.000000  NaN           NaN  200.000000   603.000000    1.000000        NaN  202.000000            NaN    6.200000      NaN      1.000000=== Cantidad de nulos ===Age               0
+Sex               0
+ChestPainType     0
+RestingBP         0
+Cholesterol       0
+FastingBS         0
+RestingECG        0
+MaxHR             0
+ExerciseAngina    0
+Oldpeak           0
+ST_Slope          0
+HeartDisease      0
+dtype: int64=== Filas duplicadas ===0=== Tipos de datos ===Age                 int64
+Sex                object
+ChestPainType      object
+RestingBP           int64
+Cholesterol         int64
+FastingBS           int64
+RestingECG         object
+MaxHR               int64
+ExerciseAngina     object
+Oldpeak           float64
+ST_Slope           object
+HeartDisease        int64
+dtype: object=== Rango de Age (outliers) ===count    918.000000
+mean      53.510893
+std        9.432617
+min       28.000000
+25%       47.000000
+50%       54.000000
+75%       60.000000
+max       77.000000
+Name: Age, dtype: float64

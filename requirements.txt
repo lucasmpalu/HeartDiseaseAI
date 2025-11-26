@@ -1,0 +1,33 @@
+# Core scientific stack
+numpy
+pandas
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# Jupyter environment. Para usar notebooks y para usar el entorno de conda dentro de Jupyter
+jupyter 
+ipykernel
+
+# Model persistence. Guardar modelos
+joblib
+
+# For handling class imbalance if needed
+imbalanced-learn
+
+# Optional but useful for advanced models
+xgboost
+
+# Optional formats / utilities
+pyyaml
+
+# API Rest development
+fastapi
+
+# Uvicorn para correr la app de FastAPI
+uvicorn
+
+# Data validation
+pydantic
