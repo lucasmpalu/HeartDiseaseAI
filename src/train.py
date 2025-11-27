@@ -41,6 +41,7 @@ def evaluate_models_crossval(models: dict, param_grid: dict,
         # Esto entrena MUCHOS modelos internamente (uno por fold y por combinación).
         # Al final, entrena de nuevo el modelo ganador con TODO X_train.
         grid.fit(X_train, y_train)
+        print(f"📌 Usando {folds} folds para GridSearchCV")
 
         # Modelo final ya reentrenado con TODO el conjunto X_train
         best_model = grid.best_estimator_

@@ -1,0 +1,13 @@
+Classification Report for SVC:
+              precision    recall  f1-score   support
+
+           0       0.85      0.84      0.85        82
+           1       0.87      0.88      0.88       102
+
+    accuracy                           0.86       184
+   macro avg       0.86      0.86      0.86       184
+weighted avg       0.86      0.86      0.86       184
+
+Confusion Matrix:
+[[69 13]
+ [12 90]]

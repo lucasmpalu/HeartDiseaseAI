@@ -22,28 +22,61 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier, ExtraTreesClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from xgboost import XGBClassifier  # si lo tenés instalado
+
 models = {
     "LogisticRegression": LogisticRegression(max_iter=500, random_state=42),
     "SVC": SVC(probability=True, random_state=42),
-    "RandomForest": RandomForestClassifier(random_state=42)
+    "RandomForest": RandomForestClassifier(random_state=42),
+    "GradientBoosting": GradientBoostingClassifier(random_state=42),
+    "AdaBoost": AdaBoostClassifier(random_state=42),
+    "KNN": KNeighborsClassifier(),
+    "ExtraTrees": ExtraTreesClassifier(random_state=42),
 }
 
+
+# Grilla de hiperparámetros ampliada
 param_grid = {
     "LogisticRegression": {
-        "C": [0.1, 1, 10],
-        "solver": ["lbfgs", "liblinear"],
-        "random_state": [42]
+        "C": [0.01, 0.1, 1, 10, 100],
+        "solver": ["lbfgs", "liblinear"]
     },
     "SVC": {
-        "C": [0.5, 1, 10],
-        "kernel": ["linear", "rbf"],
-        "random_state": [42]
+        "C": [0.1, 0.5, 1, 5, 10],
+        "kernel": ["linear", "rbf", "poly"],
+        "degree": [2, 3, 4],
+        "gamma": ["scale", "auto"]
     },
     "RandomForest": {
-        "n_estimators": [50, 100, 200],
-        "max_depth": [None, 5, 10],
-        "random_state": [42]
+        "n_estimators": [100, 200, 300, 500],
+        "max_depth": [None, 5, 10, 20],
+        "min_samples_split": [2, 5, 10],
+        "min_samples_leaf": [1, 2, 4]
     },
+    "GradientBoosting": {
+        "n_estimators": [100, 200, 300],
+        "learning_rate": [0.01, 0.05, 0.1],
+        "max_depth": [2, 3, 4, 5],
+        "subsample": [0.8, 1]
+    },
+    "AdaBoost": {
+        "n_estimators": [50, 100, 200, 400],
+        "learning_rate": [0.01, 0.1, 1.0]
+    },
+    "KNN": {
+        "n_neighbors": [3, 5, 7, 11, 15, 21],
+        "weights": ["uniform", "distance"],
+        "p": [1, 2]  # Manhattan o Euclidiana
+    },
+    "ExtraTrees": {
+        "n_estimators": [100, 200, 300, 500],
+        "max_depth": [None, 5, 10, 20],
+        "min_samples_split": [2, 5, 10]
+    }
 }
 
 #############################################
@@ -78,7 +111,7 @@ def train_pipeline(use_ensemble=False):
     # D. Entrenar modelos con GridSearchCV
     # ------------------------------
     print("🤖 Entrenando modelos con GridSearchCV...")
-    evaluated_models = evaluate_models_crossval(models, param_grid, X_train, y_train)
+    evaluated_models = evaluate_models_crossval(models, param_grid, X_train, y_train, folds=5)
 
     # ------------------------------
     # E. Seleccionar campeón (o ensemble)
